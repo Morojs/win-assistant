@@ -7,6 +7,8 @@ SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 # Recognizer class
 from api.recognizer import Recognizer
+import parse.lark_parser as parser
+
 
 
 def start() :
@@ -17,11 +19,13 @@ def start() :
     while True : 
         # print the result 
         guess = Recognizer(recognizer, microphone).recognize_speech_from_mic()
+        response=parser.main(format(guess["transcription"]))
         # show the user the transcription
         if (format(guess["transcription"])!="None") : 
             print("You said: {}".format(guess["transcription"]))
             playsound('sounds/end.wav') 
         else : 
+            print(response)
             print("Sorry I couldn't understand ...!")
 
 def main() :
