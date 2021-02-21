@@ -11,7 +11,7 @@ from lark import Lark, Transformer, v_args
 ([a-zA-Z0-9]+\.txt)         : is for the file name - it matches the file name
 """
 speech_grammar = """
-start              : KEY TYPE FNAME PATH
+start              : KEY TYPE FNAME PATH?
 KEY                : "create" | "delete" | "open" | "read" | "make"
 TYPE               : "file" | "folder"
 FNAME              : (/[a-z]/)+
@@ -34,7 +34,7 @@ def main():
 
 
 def test():
-    print(speech("make file test"))
+    print(speech("make file test d:/test"))
     print(speech("delete file test"))
 
 
