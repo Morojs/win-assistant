@@ -19,13 +19,13 @@ def start() :
     while True : 
         # print the result 
         guess = Recognizer(recognizer, microphone).recognize_speech_from_mic()
-        response=parser.main(format(guess["transcription"]))
+       
         # show the user the transcription
         if (format(guess["transcription"])!="None") : 
-            print("You said: {}".format(guess["transcription"]))
+            response=parser.main(format(guess["transcription"]))
+            print("You said: {}".format(guess["transcription"])+ " response "+ str(response))
             playsound('sounds/end.wav') 
         else : 
-            print(response)
             print("Sorry I couldn't understand ...!")
 
 def main() :
