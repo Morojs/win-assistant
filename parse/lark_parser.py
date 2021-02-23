@@ -4,10 +4,8 @@ Basic of speech recognition grammar
 
 """
 from lark import Lark,Token, Transformer, v_args
-from pathlib import Path
 from helpers.file_process import FileProcess
 import numpy as np
-import os
 
 """
 [a-zA-Z]    : is for the drive letter and :.
@@ -32,9 +30,9 @@ def run(input):
     try:
         speech = speech_parser.parse(input)
         instr=np.array(speech.children)
-        return FileProcess(instr).create()
-    except Exception as e :
-        return e
+        return FileProcess(instr).request_process()
+    except Exception as err :
+        return err
 
 def main(input):
     return run(input)
