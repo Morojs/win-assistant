@@ -1,5 +1,5 @@
 from pathlib import Path
-import os
+import os,subprocess,platform
 class FileProcess() :
     
     def __init__(self,input) :
@@ -13,10 +13,10 @@ class FileProcess() :
     def request_process(self): 
         switcher = { 
             "create": self.create("w"), 
-            "delete": "rm", 
+            "delete": self.delete(), 
             "make"  : self.create("w"), 
-            "open"  : "o",
-            "read"  : "rd"
+            "open"  : self.open(),
+            "read"  : self.open()
         } 
   
     # get() method of dictionary data type returns  
@@ -33,6 +33,14 @@ class FileProcess() :
             if self.fileType=="folder" and self.isFile==False :
                 os.mkdir("./"+self.fileName)
                 self.success=True
-
         return self.success
 
+    def delete(self) : 
+        if self.fileType=="file" or self.fileType=="folder" and self.isFile==False  :
+             os.remove("./"+self.fileName)
+             self.success=True
+        return self.success
+
+    def open(self) : 
+        os.startfile("./"+self.fileName)
+        return True
