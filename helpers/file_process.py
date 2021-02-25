@@ -42,5 +42,10 @@ class FileProcess() :
         return self.success
 
     def open(self) : 
-        os.startfile("./"+self.fileName)
-        return True
+        if self.fileType=="file" or self.fileType=="folder" and self.isFile==False  :
+            if platform.system() == 'Windows':    # Windows
+                os.startfile("./"+self.fileName)
+                self.success=True
+        return self.success
+
+        
