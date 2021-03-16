@@ -47,9 +47,12 @@ class FileProcess() :
                 programName = "notepad.exe"
                 sp.Popen([programName, self.fileName])
                 return True
-        else :
+        elif self.fileType=="folder" :
             os.startfile(self.fileName)
             return True
+        elif self.fileType=="app" :
+            return True
+
         return False
 
         

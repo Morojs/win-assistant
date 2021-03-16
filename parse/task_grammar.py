@@ -11,7 +11,7 @@ Basic of speech recognition grammar
 speech_grammar = """
 start              : KEY TYPE FNAME PATH?
 KEY                : "create" | "delete" | "open" | "read" | "make" 
-TYPE               : "file" | "folder" 
+TYPE               : "file" | "folder" | "app"
 FNAME              : (/[a-z]/)+ 
 PATH               : (/[a-zA-Z]/)+":"(/[\\/]/)+DIRNAME
 DIRNAME            : ((/[a-zA-Z0-9]/)+(/[\\/]/)?)*
