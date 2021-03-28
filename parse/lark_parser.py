@@ -2,7 +2,7 @@ from lark import Lark
 from helpers.file_process  import FileProcess 
 from helpers.interaction_process import Interact
 from parse.task_grammar  import speech_grammar 
-from parse.Phrase_grammar import phrase_grammar
+from parse.phrase_grammar import phrase_grammar
 import numpy as np
 
 speech_parser = Lark(speech_grammar)
