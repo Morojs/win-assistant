@@ -1,10 +1,10 @@
 from lark import Lark
 from helpers.file_process import FileProcess
 from helpers.interaction_process import Interact
-from parse.task_grammar import speech_grammar
+from parse.task_grammar import task_grammar
 import numpy as np
 
-task_parser = Lark(speech_grammar)
+task_parser = Lark(task_grammar)
 
 
 def run(text):

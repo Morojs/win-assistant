@@ -1,4 +1,4 @@
 import app
 
-# Main Method 
-app.main()
+# Main Method
+app.main.start()
